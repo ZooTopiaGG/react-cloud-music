@@ -24,6 +24,7 @@ export function receiveBannerList(param, res) {
     type: RECEIVE_BANNER_LIST,
     param,
     data: res,
+    isFetching: false,
     receivedAt: Date.now()
   }
 }

@@ -67,12 +67,12 @@ class Recommend extends Component {
     const options = {
       speed: 5000, // default 5000
       bots: true, // show bots default true
-      interval: false // isopen interval
+      interval: false, // isopen interval
+      imgs: bannerList
     }
-    console.log('bannerList:', bannerList)
     return (
       <div className="recommend">
-        <Slider options={options} bannerList={ bannerList }/>
+        <Slider options={options}/>
         <div className="category-recommend">
           <div className="recommend-songs flex flex-pack-justify">
             <span>推荐歌单</span>
@@ -109,7 +109,6 @@ const mapStateToProps = state => {
     lastUpdated: Date.now()
   }
 
-  console.log('data:', data)
   return {
     bannerParam,
     bannerList: data.banners,

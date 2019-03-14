@@ -12,7 +12,6 @@ export default class RightAside extends Component {
     };
   }
   handleClick = (e) => {
-    console.log('click', e)
     this.setState({
       current: e.key,
     });

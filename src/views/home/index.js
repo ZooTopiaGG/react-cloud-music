@@ -21,7 +21,6 @@ class Home extends Component {
   }
   updateActive = (key) => {
     let index = _.findIndex(routes, route => route.key === key);
-    console.log('当前路由文本：', routes[index]['text'])
     this.setState({current: routes[index]['text']})
   }
   componentDidMount() {

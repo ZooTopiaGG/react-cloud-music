@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import EmptyBox from 'components/emptyBox'
 
 export default class Local extends Component {
   constructor() {
@@ -8,7 +9,7 @@ export default class Local extends Component {
   render () {
     return (
       <div>
-        This is local page
+        <EmptyBox/>
       </div>
     )
   }

@@ -17,8 +17,6 @@ class FindMusic extends Component {
   }
   // 浏览器刷新，前进，后退 menu菜单获取最新状态
   getMenuState =() => {
-    console.log('adasda1234', this.context.router.route.location.pathname)
-    console.log('adasda123444', this.props.history)
     // let pathname = this.context.router.route.location.pathname,
     //   _pathname = pathname === '/findmusic' ? '/findmusic/recommend' : pathname,
     //   index = _.findIndex(FindMuiscRoutes, route => _pathname.indexOf(route.link) > -1);

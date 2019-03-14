@@ -19,9 +19,9 @@ const defaultFailSolution = (res) => {
  * no-cors: 该模式用于跨域请求但是服务器不带CORS响应头，也就是服务端不支持CORS；其对应的response type为opaque。
  * @param fail 失败处理函数，默认为defaultFailSolution，效果为将message填充到消息通知栏。参数为msg和http code，自行处理303的状态
  */
-// const baseUrl = 'http://localhost:4000';
+const baseUrl = 'http://localhost:4000';
 export const asyncFetch = async (method, API, otherParams, otherHeader = {}, fail = defaultFailSolution) => {
-    let api = process.env.NODE_ENV === 'development' ? API : '/cross_origin' + API;
+    let api = process.env.NODE_ENV === 'development' ? baseUrl + API : baseUrl+ '/cross_origin' + API;
     let header = new Headers();
     header.set('Content-Type', 'application/json');
     for (let key in otherHeader) {

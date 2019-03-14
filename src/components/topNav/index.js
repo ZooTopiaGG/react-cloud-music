@@ -29,7 +29,6 @@ class TopNav extends Component {
   async handleSubmmit(values) {
     const { dispatch } = this.props
     await dispatch(fetchLogin(values))
-    console.log('asasdaxxxxxxxxxxxxx: ', this.props)
     localStorage.setItem('userInfo', JSON.stringify(this.props.data))
     this.setState({
       show: !this.props.isShow

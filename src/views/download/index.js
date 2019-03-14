@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import EmptyBox from 'components/emptyBox'
 
 export default class DownLoad extends Component {
   constructor() {
@@ -8,7 +9,7 @@ export default class DownLoad extends Component {
   render () {
     return (
       <div>
-        This is download page
+        <EmptyBox/>
       </div>
     )
   }

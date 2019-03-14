@@ -75,20 +75,20 @@ class Slider extends Component {
     this.state.options.interval && clearInterval(timer)
   }
   componentWillReceiveProps (nextProps) {
-    this.setState(state => {
-      state.options.imgs = nextProps.options.imgs
-    })
-  }
-  render () {
-    console.log('bannerListbannerListbannerList:', this.props)
     const { dir } = this.state;
-    const { imgs, bots } = this.state.options;
-    if (imgs && imgs.length > 0) {
-      if (imgs.length > 3 && dir.length < imgs.length) {
-        for(var i = 0, dirLen = imgs.length - 3; i< dirLen; i++) {
+    const _imgs = nextProps.options.imgs
+    if (_imgs && _imgs.length > 0) {
+      if (_imgs.length > 3 && dir.length < _imgs.length) {
+        for(var i = 0, dirLen = _imgs.length - 3; i< dirLen; i++) {
           dir.splice(dir.length-1, 0, { name: 'normal' });
         }
       } 
+    }
+  }
+  render () {
+    const { dir } = this.state;
+    const { imgs, bots } = this.props.options;
+    if (imgs && imgs.length > 0) {
       return (
         <div className="slider"
           onMouseEnter={() => this.handleEnterSlider()}

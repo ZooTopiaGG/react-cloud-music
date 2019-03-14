@@ -9,7 +9,6 @@ class Login extends Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
         delete values['remember']
         this.props.onSubmmit(values)
       }
@@ -19,7 +18,6 @@ class Login extends Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     const { show } = this.props;
-    console.log('this.props:::::',  this.props)
     return show ? (<div className="login flex flex-v flex-align-center flex-pack-center">
       <div className="logo">
         <Icon type="github" style={{ fontSize: '48px',color: 'rgb(242, 156, 159)' }}/>

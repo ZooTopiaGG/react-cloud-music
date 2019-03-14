@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import EmptyBox from 'components/emptyBox'
 
 export default class SongList extends Component {
   constructor() {
@@ -8,7 +9,7 @@ export default class SongList extends Component {
   render () {
     return (
       <div>
-        This is songList page
+        <EmptyBox/>
       </div>
     )
   }

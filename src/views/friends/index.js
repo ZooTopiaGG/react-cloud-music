@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import EmptyBox from 'components/emptyBox'
 export default class Friends extends Component {
   constructor() {
     super();
@@ -8,7 +8,7 @@ export default class Friends extends Component {
   render () {
     return (
       <div>
-        This is friends page
+        <EmptyBox/>
       </div>
     )
   }

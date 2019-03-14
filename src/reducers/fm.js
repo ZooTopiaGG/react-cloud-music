@@ -1,45 +1,45 @@
 import {
-  REQUEST_BANNER_LIST,
-  RECEIVE_BANNER_LIST,
-  BANNER_PARAM
-} from '../../actions/findmusic/recommend'
+  REQUEST_FM_LIST,
+  RECEIVE_FM_LIST,
+  REQUEST_FM_PARAM
+} from '../actions/fm'
 
-export const bannerParam = (state = '', action) => {
+export const fmParam = (state = "", action) => {
   switch(action.type) {
-    case BANNER_PARAM:
+    case REQUEST_FM_PARAM:
       return action.param
     default: return state
   }
 }
 
-const posts = (state = {
+export const posts = (state = {
   isFetching: false,
-  items: [],
-  lastUpdated: Date.now()
+  items: {},
+  lastUpdateAt: Date.now()
 }, action) => {
   switch(action.type) {
-    case REQUEST_BANNER_LIST:
+    case REQUEST_FM_LIST:
       return Object.assign({}, state, {
         isFetching: true
       })
-    case RECEIVE_BANNER_LIST:
+    case RECEIVE_FM_LIST:
       return Object.assign({}, state, {
         isFetching: false,
         items: action.data,
         lastUpdated: action.receivedAt
       })
-    default: return state
+    default: return
   }
 }
 
-
-export const requestBannerList = (state = '', action) => {
+export const requestFmList = (state = '', action) => {
   switch(action.type) {
-    case RECEIVE_BANNER_LIST:
-    case REQUEST_BANNER_LIST:
+    case RECEIVE_FM_LIST:
+    case REQUEST_FM_LIST:
+      console.log(action)
       return Object.assign({}, state, {
         data: posts(state[action.param], action)
       })
     default: return state
   }
-}
+} 
