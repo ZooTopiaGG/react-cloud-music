@@ -9,9 +9,9 @@ import {
 } from '../../actions'
 const Search = Input.Search;
 
-// const ipcRenderer = window.require('electron').ipcRenderer;
+const ipcRenderer = window.require('electron').ipcRenderer;
 
-let ipcRenderer;
+// let ipcRenderer;
 let isFullScreen = false;
 class TopNav extends Component {
   constructor() {

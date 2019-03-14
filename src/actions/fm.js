@@ -28,6 +28,12 @@ export function requestFmList(param) {
   }
 }
 
+/**
+ * 请求FmList 并返回参数和结果
+ * @export
+ * @param {*} param
+ * @returns
+ */
 export function fetchFmList(param) {
   return async dispatch => {
     let res = await getPersonalFm()

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import EmptyBox from 'components/emptyBox'
 
 class LastestMusic extends Component {
   constructor() {
@@ -8,7 +9,7 @@ class LastestMusic extends Component {
   render () {
     return (
       <div className="recommend">
-        this is LastestMusic
+        <EmptyBox/>
       </div>
     )
   }

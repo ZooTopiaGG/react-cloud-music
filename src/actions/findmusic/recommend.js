@@ -28,7 +28,12 @@ export function receiveBannerList(param, res) {
     receivedAt: Date.now()
   }
 }
-
+/**
+ * 请求bannerList 并返回参数和结果
+ * @export
+ * @param {*} param
+ * @returns
+ */
 export function fetchBannerList(param) {
   return async dispatch => {
     let res = await getBanner()

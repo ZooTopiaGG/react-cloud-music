@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import EmptyBox from 'components/emptyBox'
 
 class Songs extends Component {
   constructor() {
@@ -8,7 +9,7 @@ class Songs extends Component {
   render () {
     return (
       <div className="recommend">
-        this is Songs
+        <EmptyBox/>
       </div>
     )
   }

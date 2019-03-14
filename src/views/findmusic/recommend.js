@@ -92,7 +92,7 @@ class Recommend extends Component {
             <span>LOOK直播</span>
             <span className="more">更多 ></span>
           </div>
-          {/* <List /> */}
+          <List lists={djprogramList} nums="5"/>
         </div>
       </div>
     )
@@ -101,9 +101,7 @@ class Recommend extends Component {
 
 const mapStateToProps = state => {
   const { requestBannerList, bannerParam }  = state
-  const { isFetching, lastUpdated, items: data } = requestBannerList[
-    bannerParam
-  ] || {
+  const { isFetching, lastUpdated, items: data } = requestBannerList.data || {
     isFetching: true,
     items: [],
     lastUpdated: Date.now()

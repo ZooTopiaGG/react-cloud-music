@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './index.less';
 var timer = {}, index = 0;
 class Slider extends Component {
@@ -51,8 +52,11 @@ class Slider extends Component {
         dirCopy.unshift(pop);
       }
     }
-    this.setState({ dir: dirCopy }); // 触发react-render重新渲染页面
-    this.setState({ currentKey: key }); // 记录当前图片节点
+    this.setState({
+      dir: dirCopy, // 触发react-render重新渲染页面
+      currentKey: key // 记录当前图片节点
+    }); 
+    this.setState({ }); 
   }
   handleEnterSlider() {
     this.state.options.interval && clearInterval(timer)
@@ -88,41 +92,45 @@ class Slider extends Component {
   render () {
     const { dir } = this.state;
     const { imgs, bots } = this.props.options;
-    if (imgs && imgs.length > 0) {
-      return (
-        <div className="slider"
-          onMouseEnter={() => this.handleEnterSlider()}
-          onMouseLeave={() => this.handleLeaveSlider()}>
-          <div className="slider-box">
+    return imgs && imgs.length > 0 ? (
+      <div className="slider"
+        onMouseEnter={() => this.handleEnterSlider()}
+        onMouseLeave={() => this.handleLeaveSlider()}>
+        <div className="slider-box">
+          {
+            dir.map((item, key) => {
+              return (
+                <div className={`slider-item slider-${item.name}`} key={key}>
+                  <img src={imgs[key].imageUrl} alt="banner"/>
+                  <div className={ item.name === 'middle' ? '' : 'masking' } onClick={ () => {this.handleSlider(item, key)} }></div>
+                </div>
+              )
+            })
+          }
+        </div>
+        <div className={ bots ? 'slider-bots' : 'slider-bots slider-bots-hide' }>
+          <div className="slider-point">
             {
               dir.map((item, key) => {
                 return (
-                  <div className={`slider-item slider-${item.name}`} key={key}>
-                    <img src={imgs[key].imageUrl} alt="banner"/>
-                    <div className={ item.name === 'middle' ? '' : 'masking' } onClick={ () => {this.handleSlider(item, key)} }></div>
-                  </div>
+                  <span key={key} className={item.name === 'middle' ? 'point-hover': ''} onMouseEnter={() => this.pointFunc(key)}></span>
                 )
               })
             }
           </div>
-          <div className={ bots ? 'slider-bots' : 'slider-bots slider-bots-hide' }>
-            <div className="slider-point">
-              {
-                dir.map((item, key) => {
-                  return (
-                    <span key={key} className={item.name === 'middle' ? 'point-hover': ''} onMouseEnter={() => this.pointFunc(key)}></span>
-                  )
-                })
-              }
-            </div>
-          </div>
         </div>
-      )
-    } else {
-      return null
-    }
-    
+      </div>
+    ) : null
   }
+}
+
+Slider.propTypes = {
+  options: PropTypes.shape({
+    speed: PropTypes.number,
+    bots: PropTypes.bool,
+    interval: PropTypes.bool,
+    imgs: PropTypes.array
+  })
 }
 
 export default Slider
