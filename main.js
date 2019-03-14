@@ -37,7 +37,7 @@ function createWindow() {
   }
 
   // 打开开发者工具
-  win.webContents.openDevTools();
+  // win.webContents.openDevTools();
 
   // 当窗口被关闭时 回调
   win.on('closed', () => {

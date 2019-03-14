@@ -72,7 +72,7 @@ class TopNav extends Component {
     let local = localStorage.getItem('userInfo')
     let userInfo = JSON.parse(local)
     let user = null;
-    if (local !== '{}' && userInfo.profile) {
+    if (local !== '{}' && userInfo && userInfo.profile) {
       user = <div className="info-login pointer info-hover flex flex-align-center flex-pack-center">
         <Avatar size={26} src={userInfo.profile.avatarUrl} style={{ marginRight: 5 }}/>
         <span>{ userInfo.profile.nickname }</span>
